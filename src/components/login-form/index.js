@@ -4,8 +4,15 @@ import {witchLoginRegistrationCreateActions} from '../../redux/actions/actions-t
 import view  from './view'
 
 const mapStateToProps = (state) => {
-    return {
-        isLogin: state.isLogin
+    if (state.isLogin) {
+        return {
+            isLogin: 0
+        };
+    }
+    else {
+        return {
+            isLogin: 1
+        };
     }
 }
 
