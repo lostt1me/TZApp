@@ -1,7 +1,7 @@
 import { ACTIONS, switchLoginRegistrationCreateActions} from '../actions/actions-types'
 import { combineReducers } from 'redux'
 const initialState = {
-    isLogin : false,
+    isLogin : true,
 }
 
 function switchLoginRegistration(state = initialState, action) {

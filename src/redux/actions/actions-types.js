@@ -7,7 +7,7 @@ export const ACTIONS = {
 * action creators
 */
 
-export function witchLoginRegistrationCreateActions () {
+export function switchLoginRegistrationCreateActions () {
     return ({
         type : ACTIONS.SWITCH_LOGIN_REGISTRATION,
     });

@@ -1,10 +1,10 @@
 //import React from 'react'
 import { connect } from 'react-redux'
-import {witchLoginRegistrationCreateActions} from '../../redux/actions/actions-types'
+import {switchLoginRegistrationCreateActions} from '../../redux/actions/actions-types'
 import view  from './view'
 
 const mapStateToProps = (state) => {
-    if (state.isLogin) {
+    if (state.switchLoginRegistration.isLogin) {
         return {
             isLogin: 0
         };
@@ -19,7 +19,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = dispatch => {
     return {
         onChange: () => {
-            dispatch(witchLoginRegistrationCreateActions());
+            dispatch(switchLoginRegistrationCreateActions());
         }
     };
 };
