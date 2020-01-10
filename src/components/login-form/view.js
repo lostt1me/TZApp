@@ -7,12 +7,12 @@ import Tab from '@material-ui/core/Tab';
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button';
 
-export default function LoginForm (props) {
+export default function LoginForm ({onChange}) {
     return (
         <Card className={loginStyle.login}>
             <CardContent >
                 <Tabs 
-                    //для пропсов
+                    onChange={onChange}
                 >
                     <Tab label="Login" />
                     <Tab label="Registration" />

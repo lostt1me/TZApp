@@ -7,7 +7,7 @@ const initialState = {
 function switchLoginRegistration(state = initialState, action) {
     switch (action.type) {
         case ACTIONS.SWITCH_LOGIN_REGISTRATION :
-            
+            debugger;
             return ({
                 ...state, 
                 isLogin : !state.isLogin
