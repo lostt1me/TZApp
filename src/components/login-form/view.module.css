@@ -1,0 +1,9 @@
+.login {
+    display: inline-block;
+    margin: 10px;
+    align-items: center;
+}
+.item {
+    padding: 5px;
+    text-align: center;
+}
