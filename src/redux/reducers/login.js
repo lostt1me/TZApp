@@ -1,13 +1,12 @@
-import { ACTIONS, switchLoginRegistrationCreateActions} from '../actions/actions-types'
-import { combineReducers } from 'redux'
+import { ACTIONS } from '../actions/actions-types';
+import { combineReducers } from 'redux';
 const initialState = {
-    isLogin : true,
+    isLogin : true
 }
 
-function switchLoginRegistration(state = initialState, action) {
+const switchLoginRegistration = (state = initialState, action) => {
     switch (action.type) {
-        case ACTIONS.SWITCH_LOGIN_REGISTRATION :
-            debugger;
+        case ACTIONS.SWITCH_LOGIN_REGISTRATION:
             return ({
                 ...state, 
                 isLogin : !state.isLogin
@@ -15,7 +14,7 @@ function switchLoginRegistration(state = initialState, action) {
         default:
             return state;
     }
-};
+}
 
 const loginReducers = combineReducers({
     switchLoginRegistration

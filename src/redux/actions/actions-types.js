@@ -1,14 +1,14 @@
 export const ACTIONS = {
-    SWITCH_LOGIN_REGISTRATION : 'SWITCH-LOGIN-REGISTRATION',
-}
+    SWITCH_LOGIN_REGISTRATION : 'SWITCH-LOGIN-REGISTRATION'
+};
 
 
 /*
 * action creators
 */
 
-export function switchLoginRegistrationCreateActions () {
+export const switchLoginRegistrationCreateActions = () => {
     return ({
-        type : ACTIONS.SWITCH_LOGIN_REGISTRATION,
+        type : ACTIONS.SWITCH_LOGIN_REGISTRATION
     });
 }
