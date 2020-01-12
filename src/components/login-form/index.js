@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
 import { switchLoginRegistrationCreateActions} from '../../redux/actions/actions-types'
 import { LoginForm as view } from './view'
+import { reduxForm } from 'redux-form'
 
 const mapStateToProps = (state) => {
     return {
@@ -15,7 +16,11 @@ const mapDispatchToProps = dispatch => {
         }
     };
 };
-export default connect(
+const ViewConnect = connect(
     mapStateToProps,
     mapDispatchToProps
 )(view)
+
+export const loginForm = reduxForm({
+    form: 'login'
+})(ViewConnect)

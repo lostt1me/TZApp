@@ -1,5 +1,7 @@
 import { ACTIONS } from '../actions/actions-types';
 import { combineReducers } from 'redux';
+import { reducer as formReducer } from 'redux-form'
+
 const initialState = {
     isLogin : true
 }
@@ -16,8 +18,10 @@ const switchLoginRegistration = (state = initialState, action) => {
     }
 }
 
+
 const loginReducers = combineReducers({
-    switchLoginRegistration
+    switchLoginRegistration,
+    form: formReducer
 });
 
 export default loginReducers;
