@@ -6,13 +6,16 @@ const initialState = {
     isLogin : true
 }
 
-const switchLoginRegistration = (state = initialState, action) => {
+const loginFormReducers = (state = initialState, action) => {
     switch (action.type) {
         case ACTIONS.SWITCH_LOGIN_REGISTRATION:
             return ({
                 ...state, 
                 isLogin : !state.isLogin
             });
+        case ACTIONS.LOGIN_SUBMIT:
+            alert("submit reducer");
+            return state;
         default:
             return state;
     }
@@ -20,7 +23,7 @@ const switchLoginRegistration = (state = initialState, action) => {
 
 
 const loginReducers = combineReducers({
-    switchLoginRegistration,
+    loginFormReducers,
     form: formReducer
 });
 

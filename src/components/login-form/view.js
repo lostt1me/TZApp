@@ -11,25 +11,46 @@ import { Field } from 'redux-form';
 
 const patternEmail = "([A-z0-9_.-]{1,})@([A-z0-9_.-]{1,}).([A-z]{2,8})";
 
-export const LoginForm = ({onChange, isLogin}) => {
+//Пробую соединить form-redux и material-ui
+const renderTextField = ({ input,label, type }) => (
+    <TextField label={label}
+        {...input}
+        required
+        type={type}
+  />
+)
+renderTextField.propTypes = {
+    label: PropTypes.string,
+    input: PropTypes.any,
+    type: PropTypes.string
+}
+
+const renderTabsPanel = ({value, onChange}) => (
+    <Tabs
+        value={value} 
+        onChange={onChange}
+    >
+        <Tab label="Login" />
+        <Tab label="Registration" />
+    </Tabs>
+)
+renderTabsPanel.propTypes = {
+    value: PropTypes.number,
+    onChange: PropTypes.func    
+}
+export const LoginForm = ({onChange, isLogin, onSubmit}) => {
      return (
-         <form>
+         <form onSubmit={onSubmit}>
             <Card className={loginStyle.login}>
                 <CardContent >
-                    <Tabs
-                        value={isLogin? 0 : 1} 
-                        onChange={onChange}
-                    >
-                        <Tab label="Login" />
-                        <Tab label="Registration" />
-                    </Tabs>
+                    <Field name="TabsPanel" component={renderTabsPanel} onChange={onChange} value={isLogin? 0 : 1}/>
                     <div className={loginStyle.textField}>
-                        <Field name="Email" component={TextField} label="Email" required pattern={patternEmail}/>
-                        {!isLogin ? <Field name="Name" component={TextField} required label="Name"/> : undefined}
-                        <Field name="Password" component={TextField} type="password" required label="Password" />
+                        <Field name="Email" component={renderTextField} label="Email" pattern={patternEmail}/>
+                        {!isLogin ? <Field name="Name" component={renderTextField} label="Name"/> : undefined}
+                        <Field name="Password" component={renderTextField} type="password" label="Password" />
                     </div>
                     <div >
-                        <Button variant="contained" >Submit</Button>    
+                        <Button variant="contained" type="submit">Submit</Button>    
                     </div>    
                 </CardContent>
             </Card>
@@ -39,6 +60,7 @@ export const LoginForm = ({onChange, isLogin}) => {
 
 LoginForm.propTypes = {
     isLogin: PropTypes.bool.isRequired,
-    onChange: PropTypes.func.isRequired
+    onChange: PropTypes.func.isRequired,
+    onSubmit: PropTypes.func.isRequired
 };
 //<TextField required label="Login" />
