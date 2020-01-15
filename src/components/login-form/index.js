@@ -2,6 +2,7 @@ import { connect } from 'react-redux'
 import { switchLoginRegistrationCreateActions, loginSubmitCrateActions } from '../../redux/actions/actions-types'
 import { LoginForm as view } from './view'
 import { reduxForm } from 'redux-form'
+import { validate } from './validations'
 
 const mapStateToProps = (state) => {
     return {
@@ -14,8 +15,9 @@ const mapDispatchToProps = dispatch => {
         onChange: () => {
             dispatch(switchLoginRegistrationCreateActions());
         },
-        onSubmit: () => {
-            dispatch(loginSubmitCrateActions());
+        onSubmit: (values) => {
+            //validate(values);
+            dispatch(loginSubmitCrateActions(values));
         }
     };
 };
@@ -25,5 +27,6 @@ const ViewConnect = connect(
 )(view)
 
 export const loginForm = reduxForm({
-    form: 'login'
+    form: 'login',
+    validate
 })(ViewConnect)

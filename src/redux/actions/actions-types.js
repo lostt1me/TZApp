@@ -14,8 +14,9 @@ export const switchLoginRegistrationCreateActions = () => {
     });
 }
 
-export const loginSubmitCrateActions = () => {
+export const loginSubmitCrateActions = (values) => {
     return ({
-        type : ACTIONS.LOGIN_SUBMIT
+        type : ACTIONS.LOGIN_SUBMIT,
+        data: values
     });
 }

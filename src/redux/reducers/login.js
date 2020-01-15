@@ -14,7 +14,7 @@ const loginFormReducers = (state = initialState, action) => {
                 isLogin : !state.isLogin
             });
         case ACTIONS.LOGIN_SUBMIT:
-            alert("submit reducer");
+            alert(action.data.Email);
             return state;
         default:
             return state;
