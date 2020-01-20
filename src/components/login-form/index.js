@@ -15,7 +15,7 @@ const mapDispatchToProps = dispatch => {
         onChange: () => {
             dispatch(switchLoginRegistrationCreateActions());
         },
-        onSubmit: (values) => {
+        onSubmit: async (values) => {
             //validate(values);
             dispatch(loginSubmitCrateActions(values));
         }
